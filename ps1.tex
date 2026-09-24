@@ -3,6 +3,9 @@
 \input{letterfonts.tex}
 \input{macros.tex}
 
+% making lcm command
+\DeclareMathOperator{\lcm}{lcm}
+
 \title{MATH 327: \\ Problem Set 1}
 \author{Jerahmeel Ual Alcano \\ 30153076}
 \date{}
@@ -26,11 +29,11 @@ Then suppose \(a_n = 3^{3n+3}-26b-27\). Suppose \(169 \mid a_n\) for some
 fixed integer n. Then,
 \begin{align*}
     a_{n+1} - a_n & = (3^{3n + 6} - 26(n+1) - 27 ) - (3^{3n +3} -26n -27) \\
-                  & = 3^{3n + 6} - 3^{3n+3} -26   \\
-                  & = 3^{3n}\cdot 3^3 \cdot 3^3 - 3^{3n +3} - 26\\
-                  & = 27 \cdot 3^{3n +3} - 3^{3n + 3} -26\\
-                  & = 3^{3n + 3}(27 -1) - 26 = 3^{3n + 3}(3^3 -1) - 26\\
-                  & = 3^{3n + 3}\cdot26 - 26\\
+                  & = 3^{3n + 6} - 3^{3n+3} -26                           \\
+                  & = 3^{3n}\cdot 3^3 \cdot 3^3 - 3^{3n +3} - 26          \\
+                  & = 27 \cdot 3^{3n +3} - 3^{3n + 3} -26                 \\
+                  & = 3^{3n + 3}(27 -1) - 26 = 3^{3n + 3}(3^3 -1) - 26    \\
+                  & = 3^{3n + 3}\cdot26 - 26                              \\
                   & = 26(3^{3n + 3}-1) = 2\cdot13(3^{3n + 3} -1)
 \end{align*}
 We need \(169 \mid 13^2\) to divide \(a_{n+1} = 26(3^{3n + 3} -1)\). Since
@@ -40,5 +43,47 @@ So we need another \(13\) from \(3^{3n + 3} -1\). We try,
 Thus, \(3^{3n + 3} -1 = 13m \) for some integer \(m\), and
 \[2\cdot13 (3^{3n + 3} -1) = 2\cdot13(13m) = 2\cdot 169 \cdot m\]
 Therefore, \(169 \mid 3^{3n + 3}-26n-27\).\qed
+
+\section*{Question 2}
+\begin{enumerate}
+    \item Finding \(\gcd(34,55)\) using the Euclidean Algorithm.
+          \[
+              \begin{array}{r|rr}
+                  34x + 55y  & x   & y  \\
+                  \hline
+                  55         & 0   & 1  \\
+                  34         & 1   & 0  \\
+                  21         & -1  & 1  \\
+                  13         & 2   & -1 \\
+                  8          & -3  & 2  \\
+                  \mathbf{5} & 5   & -3 \\
+                  \mathbf{3} & -8  & 5  \\
+                  2          & 13  & -8 \\
+                  1          & -21 & 13
+              \end{array}
+          \]
+          So  the \(1 = \gcd(34,55) = 34(-21) + 55(13)\)
+    \item From the algorithm above, we get \[2 = 34(13) + 55(-8)\]
+    \item From part (1), we know that \(c = 1 = \gcd(34,55)\) so \(d \mid c\), 
+    so there are infinitely many solutions of the form:
+    \[x = x_0 + n \cdot \frac{\lcm(a,b)}{a}, y = y_0 - n \cdot \frac{\lcm(a,b)}{b}\]
+    To find \(\lcm(34,55)\), we can use the GCD-LCM product formula or Theorem 10 on the class notes which states,
+    \(\gcd(34,55) \cdot \lcm(34,55) = a \cdot b\). Then we compute,
+    \[\lcm(34,55) = \frac{a\cdot b}{\gcd(34,55)} = \frac{34 \cdot 55}{1} = 1870\]
+    To find \(x_0\) and \(y_0\), from part (1), we know that \[34(-21) + 55(13) = 1\] then we multiply both sides by \(7\).
+    Then we get, \[34 ( -21 \cdot 7) + 55( 13\cdot7) = 1 \cdot 7\]\[ 34(-147) + 55(91) = 7\]
+    Thus, \(x_0 = -147\) and \(y_0 = 91\). Then, 
+    \begin{align*}
+        x & = x_0 + n\cdot\frac{\lcm(34,55)}{a} \\
+        & = -147 + n \cdot \frac{1870}{34} \\
+        \rightarrow x & = -147 + 55n\\
+        y & = y_0 - n\cdot\frac{\lcm(34,55)}{b}\\
+        & = 91 - n\cdot\frac{1870}{55}\\
+        \rightarrow y & = 91-34n
+    \end{align*}
+    Therefore, \(s = -147 + 55n\) and \(t = 91-43n\) is a solution for 
+    every integer \(n\).
+\end{enumerate}
+
 
 \end{document}
