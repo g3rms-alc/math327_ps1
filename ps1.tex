@@ -8,18 +8,37 @@
 \date{}
 
 \begin{document}
-\maketitle
+% \maketitle  %TODO: add this later`'
 \section*{Question 1}
 Suppose \(n \in \ZZ[]^+\). We prove by induction.\\
-Suppose \(a_n = 3^{3n +3} - 26n + 27\).\\
-
-Then suppose \(n = 1\) as the base case. We get:
+Suppose \(P(n)\) is \(169 \mid 3^{3k+3} - 26k -27\). We prove the base case
+when \(n=1\). Suppose \(n=1\), Then,
 \begin{align*}
-    a 
+    3^{3n +3} -26n -27 & = 3^{3(1) +3} -26(1) -27 \\
+                       & =3^6 - 27 -27            \\
+                       & =729 -53                 \\
+                       & =676                     \\
+                       & = 4 \cdot 169
 \end{align*}
-
-
-
-
+We obtain \(169 \mid 676\). So \(P(1)\) is true.
+\\[0.25cm]
+Then suppose \(a_n = 3^{3n+3}-26b-27\). Suppose \(169 \mid a_n\) for some
+fixed integer n. Then,
+\begin{align*}
+    a_{n+1} - a_n & = (3^{3n + 6} - 26(n+1) - 27 ) - (3^{3n +3} -26n -27) \\
+                  & = 3^{3n + 6} - 3^{3n+3} -26   \\
+                  & = 3^{3n}\cdot 3^3 \cdot 3^3 - 3^{3n +3} - 26\\
+                  & = 27 \cdot 3^{3n +3} - 3^{3n + 3} -26\\
+                  & = 3^{3n + 3}(27 -1) - 26 = 3^{3n + 3}(3^3 -1) - 26\\
+                  & = 3^{3n + 3}\cdot26 - 26\\
+                  & = 26(3^{3n + 3}-1) = 2\cdot13(3^{3n + 3} -1)
+\end{align*}
+We need \(169 \mid 13^2\) to divide \(a_{n+1} = 26(3^{3n + 3} -1)\). Since
+\(26 = 2\cdot 13\), that product already has one factor of \(13\).
+So we need another \(13\) from \(3^{3n + 3} -1\). We try,
+\[3^{3n + 3} = 3^{3(n+1)} \equiv 1^{n+1} =1 \mod13\]
+Thus, \(3^{3n + 3} -1 = 13m \) for some integer \(m\), and
+\[2\cdot13 (3^{3n + 3} -1) = 2\cdot13(13m) = 2\cdot 169 \cdot m\]
+Therefore, \(169 \mid 3^{3n + 3}-26n-27\).\qed
 
 \end{document}
