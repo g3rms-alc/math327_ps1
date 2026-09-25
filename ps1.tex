@@ -88,7 +88,7 @@ Therefore, \(169 \mid 3^{3n + 3}-26n-27\).\qed
 \section*{Question 3}
 Suppose \(a,b \in \ZZ[+]\). Suppose \(\gcd(a,b) = \lcm(a,b)\). Suppose that \(d = \gcd(a,b)\).
 Then \(d\geq 1\) and there exist positive integers \(a'\) and \(b'\) with \[a = d \cdot a'  \quad\text{and}\quad b = d\cdot d'\]
-then we obtain \[\gcd(a',b') = 1\].
+then we obtain \[\gcd(a',b') = 1\]
 We restate GCD-LCM product formula or theorem 10 on the notes, \[\gcd(a,b) \cdot \lcm(a,b) = ab\]
 Using this formula, suppose that \[d = \gcd(a,b) = \lcm(a,b)\]
 Then we get, \[d \cdot d = a\cdot b \Rightarrow d^2 = (d\cdot a')(d\cdot b')\Rightarrow d^2 = d^2\cdot a'\cdot b'\]
@@ -100,4 +100,18 @@ Dividing both sides by \(d^2\), we get
 Since \(a'\) and \(b'\)are positive integers, then \(a' = 1\) and \(b' = 1\). Thus,
 \[a = d \cdot a' = d\cdot1 = d \quad\text{and}\quad b = d\cdot b' = d \cdot 1 = d\]
 Therefore, \(a = d = b\).\qed
+
+\section*{Question 4}
+Suppose \(p \in \ZZ[]\) and \(a\) is an arbitrary integer. We need to show that \(p \nmid a + 1\). We prove this by contradiction.
+Suppose \( p \mid a +1\). Then from the definitions, we know that \(\exists m,n \in \ZZ[]\) so that 
+\[a + 1 = pm \quad \text{and}\quad a = pm\]
+Then, 
+\begin{align*}
+    ( a + 1) - a & = pm - pn \\
+    1 & = pm -pn \\
+    1 & = p(m  -n)
+\end{align*}
+Thus \(p \mid 1\). But the only way to get \(1\) is by multiplying \(1\) and \(1\). Since \(p\) is prime, then \(p >1\) so \(p \neq 1\).
+Thus \(p \nmid 1 \qquad \Rightarrow\Leftarrow\). Contradiction!\\
+Therefore, \(p \nmid a + 1\).\qed
 \end{document}
